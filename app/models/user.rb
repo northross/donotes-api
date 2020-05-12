@@ -2,5 +2,6 @@
 
 class User < ApplicationRecord
   include Authentication
-  has_many :examples
+  has_many :note
+  has_many :todo
 end

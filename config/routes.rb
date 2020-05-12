@@ -1,9 +1,22 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :todos, except: %i[new edit]
+  resources :notes, except: %i[new edit]
   # RESTful routes
-  resources :examples, except: %i[new edit]
 
+# Todo's routes
+  post '/todos' => 'todo#create'
+  get '/todos' => 'todo#index'
+  get '/todo/:id' => 'todo#show'
+  delete '/todos/:id' => 'todos#destroy'
+  patch '/todos/id' => 'todos#update'
+# Note's routes
+  post '/notes' => 'notes#create'
+  get '/notes' => 'notes#index'
+  get '/notes/:id' => 'notes#show'
+  delete '/notes/:id' => 'notes#destroy'
+  patch '/notes/id' => 'notes#update'
   # Custom routes
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
