@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   # RESTful routes
 
 # Todo's routes
-  post '/todos' => 'todo#create'
-  get '/todos' => 'todo#index'
-  get '/todo/:id' => 'todo#show'
+  post '/todos' => 'todos#create'
+  get '/todos' => 'todos#index'
+  get '/todos/:id' => 'todos#show'
   delete '/todos/:id' => 'todos#destroy'
   patch '/todos/id' => 'todos#update'
 # Note's routes

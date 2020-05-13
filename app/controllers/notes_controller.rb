@@ -3,7 +3,7 @@ class NotesController < ProtectedController
 
   # GET /notes
   def index
-    @notes = current_user.note.all
+    @notes = current_user.notes.all
 
     render json: @notes
   end
@@ -15,7 +15,7 @@ class NotesController < ProtectedController
 
   # POST /notes
   def create
-    @note = current_user.note.build(note_params)
+    @note = current_user.notes.build(note_params)
 
     if @note.save
       render json: @note, status: :created, location: @note
@@ -41,7 +41,7 @@ class NotesController < ProtectedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
-      @note = current_user.note.find(params[:id])
+      @note = current_user.notes.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
